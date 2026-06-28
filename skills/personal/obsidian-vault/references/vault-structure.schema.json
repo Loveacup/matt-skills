@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://alexcai.obsidian/vault-structure.json",
+  "title": "AlexCai Obsidian Vault Structure",
+  "description": "Dynamic vault structure definition. Skills read this at runtime instead of hardcoding paths. Update this file when the vault structure changes — skills adapt automatically.",
+  "version": "0.1.0",
+  "vault": {
+    "root": "~/Obsidian/AlexCai",
+    "moc": "知识库MOC.md",
+    "zones": {
+      "00-Inbox": {
+        "number": "00",
+        "name": "Inbox",
+        "label": "原始输入",
+        "role": "raw_permanent_source",
+        "lifecycle": "raw",
+        "flat": true,
+        "description": "Raw input — flat, no subdirectories"
+      },
+      "01-Staging": {
+        "number": "01",
+        "name": "Staging",
+        "label": "AI审核中转站",
+        "role": "candidate_isolation",
+        "lifecycle": "candidate",
+        "flat": true,
+        "description": "AI review staging — flat, YAML metadata for differentiation"
+      },
+      "02-Plan&CQI": {
+        "number": "02",
+        "name": "Plan&CQI",
+        "label": "技术方案·CQI",
+        "role": "design_and_quality",
+        "lifecycle": "core",
+        "flat": false,
+        "description": "Technical plans, CQI quality improvement, design absorption"
+      },
+      "10-Projects": {
+        "number": "10",
+        "name": "Projects",
+        "label": "项目",
+        "role": "active_project",
+        "lifecycle": "core",
+        "flat": false,
+        "description": "Active projects with deadlines",
+        "children": ["10_艾大力", "20_浙江中冶"],
+        "archive_zone": "40-Archives/10_Projects_Archive"
+      },
+      "20-Areas": {
+        "number": "20",
+        "name": "Areas",
+        "label": "领域",
+        "role": "ongoing_domain",
+        "lifecycle": "core",
+        "flat": false,
+        "description": "Long-term maintained domains",
+        "subdomains": {
+          "10_AI实践": "AI prompts, workflows, methodology",
+          "20_Obsidian方法论": "Knowledge management methodology",
+          "20_技术项目": "Hermes, Agent Skills, Supermemory",
+          "30_洞察与研究": "Cross-domain strategic research",
+          "40_技术项目方案（方法论）": "Technical design & methodology workpapers",
+          "50_政策研究": "Policy research (15th Five-Year Plan etc.)"
+        },
+        "archive_zone": "40-Archives/20_Areas_Archive"
+      },
+      "30-Resources": {
+        "number": "30",
+        "name": "Resources",
+        "label": "知识参考库",
+        "role": "reference",
+        "lifecycle": "core",
+        "flat": false,
+        "description": "Knowledge reference — pure knowledge deposition",
+        "subdomains": {
+          "10_AI知识": "AI core concepts",
+          "20_商学与管理": "Strategy, brand IP, consumer psychology",
+          "30_思维与心智": "Psychology, philosophy, game theory",
+          "40_自然科学": "Physics (relativity etc.)",
+          "50_技术与工程": "NLP, GIS, digital twins",
+          "60_视频笔记": "In-depth video analysis"
+        },
+        "archive_zone": "40-Archives/30_Resources_Archive"
+      },
+      "40-Archives": {
+        "number": "40",
+        "name": "Archives",
+        "label": "归档",
+        "role": "cold_storage",
+        "lifecycle": "archived",
+        "flat": false,
+        "description": "Cold data storage — retired projects, areas, resources"
+      },
+      "50-Self": {
+        "number": "50",
+        "name": "Self",
+        "label": "自我认知",
+        "role": "personal",
+        "lifecycle": "pipeline_external",
+        "flat": false,
+        "description": "Personal space outside the content pipeline",
+        "subdomains": {
+          "01_日记": "Daily journal",
+          "02_周报": "Weekly reports",
+          "03_会议纪要": "Meeting notes",
+          "04_自我分析": "Self-analysis (INFJ)",
+          "05_关系": "Relationships (Summer, Naomi)",
+          "30_音乐": "Music",
+          "40_健康": "Health"
+        }
+      },
+      "88-审计": {
+        "number": "88",
+        "name": "Audit",
+        "label": "CQI持续审计",
+        "role": "control_plane",
+        "lifecycle": "governance",
+        "flat": false,
+        "description": "CQI continuous audit — automated quality tracking (memory-hub pipeline output)"
+      },
+      "99-System": {
+        "number": "99",
+        "name": "System",
+        "label": "系统",
+        "role": "system",
+        "lifecycle": "system",
+        "flat": false,
+        "description": "Templates, attachments, Copilot, Excalidraw",
+        "subdomains": {
+          "01_templates": "Templates",
+          "03_attachments": "Attachments"
+        }
+      }
+    }
+  },
+  "frontmatter": {
+    "required_fields": ["status", "type", "priority", "aliases", "tags", "created", "modified"],
+    "optional_fields": ["related"],
+    "status_values": ["种子", "树苗", "常青", "归档"],
+    "priority_values": ["正常", "重要", "紧急"],
+    "type_values": [
+      "概念", "人物", "实验", "思想实验", "教程", "提示词", "方法论",
+      "调研", "方案", "CQI", "对话记录", "MoC", "创作", "战略洞察",
+      "研究报告", "分析", "指南", "案例", "报告", "项目文档", "学习笔记",
+      "关系对话", "会议", "事件", "传记", "索引", "协议", "规范", "框架",
+      "模板", "长文", "计划", "规划", "项目评估", "测试报告", "系统",
+      "技术方案", "日记", "周报", "闪念"
+    ],
+    "tag_prefixes": {
+      "dimensions": {
+        "type": "type/",
+        "status": "status/",
+        "source": "src/",
+        "topic": "topic/"
+      },
+      "disciplines": {
+        "psychology": "psych/",
+        "philosophy": "phil/",
+        "physics": "physics/",
+        "game_theory": "game/",
+        "ai": "ai/",
+        "business": "biz/",
+        "brand": "brand/",
+        "nlp": "nlp/"
+      }
+    }
+  },
+  "naming": {
+    "permanent_notes": {
+      "description": "Concept/theory/person notes",
+      "rule": "最常用的称呼（中文优先）",
+      "examples": [
+        "检索增强生成(RAG).md",
+        "U-Net.md",
+        "强化学习.md",
+        "卡尼曼.md"
+      ]
+    },
+    "event_notes": {
+      "description": "Meeting, journal, video analysis notes",
+      "rule": "类型_主题_YYYYMMDD.md",
+      "examples": [
+        "会议纪要_主题_20260628.md",
+        "B站笔记_主题简述_20260628.md"
+      ]
+    },
+    "directories": {
+      "top_level": "编号-名称",
+      "subdirectory": "编号_名称",
+      "max_depth": 5
+    }
+  },
+  "linking": {
+    "internal": "wikilinks [[name]]",
+    "external": "markdown [text](url)",
+    "min_links_per_note": 3,
+    "link_relation_symbols": {
+      "support": "→",
+      "supplement": "⊕",
+      "refute": "⊗",
+      "extend": "↗",
+      "define": "≡",
+      "cross_domain": "⇄"
+    }
+  }
+}

@@ -61,9 +61,10 @@ $env:OBSIDIAN_VAULT_PATH = "D:\Obsidian知识库\Alex Cai\AlexCai"
 
 ### 结构发现原则
 
-1. **运行时读取**：agent 应读取 vault 根目录的 `AGENTS.md` 或 `README.md` 获取当前结构
+1. **运行时读取 `.vault-structure.json`**：vault 根目录维护 `references/vault-structure.schema.json` 作为结构定义（zone 列表、frontmatter 规范、命名规则、链接符号）。skill 参考此 schema 获取当前结构。
 2. **动态检测**：使用 `find` / `ls` 命令发现实际目录结构，而非依赖硬编码
-3. **配置优先**：用户可在 `OBSIDIAN_VAULT_CONFIG` 环境变量中指定结构配置文件路径
+3. **配置优先**：用户可在 `OBSIDIAN_VAULT_CONFIG` 环境变量中指定自定义结构配置文件路径
+4. **Schema 位置**：`$VAULT_PATH/.vault-structure.json` 或本 skill 的 `references/vault-structure.schema.json`
 
 ### 通用原则（不依赖具体结构）
 
