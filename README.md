@@ -8,11 +8,11 @@
   </a>
 </p>
 
-# Skills For Real Engineers
+# Matt Skills → Alex Skills
 
-[![skills.sh](https://skills.sh/b/mattpocock/skills)](https://skills.sh/mattpocock/skills)
+> 🍴 Fork of [mattpocock/skills](https://github.com/mattpocock/skills) — personalized for Alex's multi-agent, multi-device workflow.
 
-My agent skills that I use every day to do real engineering - not vibe coding.
+[![skills.sh](https:...[truncated]
 
 Developing real applications is hard. Approaches like GSD, BMAD, and Spec-Kit try to help by owning the process. But while doing so, they take away your control and make bugs in the process hard to resolve.
 
@@ -30,14 +30,38 @@ If you want to keep up with changes to these skills, and any new ones I create, 
 npx skills@latest add mattpocock/skills
 ```
 
-2. Pick the skills you want, and which coding agents you want to install them on. **Make sure you select `/setup-matt-pocock-skills`**.
+2. Pick the skills you want, and which coding agents you want to install them on. **Make sure you select `/setup-alex-skills`**.
 
-3. Run `/setup-matt-pocock-skills` in your agent. It will:
+3. Run `/setup-alex-skills` in your agent. It will:
    - Ask you which issue tracker you want to use (GitHub, Linear, or local files)
    - Ask you what labels you apply to tickets when you triage them (`/triage` uses labels)
    - Ask you where you want to save any docs we create
 
 4. Bam - you're ready to go.
+
+### For Alex (multi-platform)
+
+These skills support Hermes, Claude Code, Codex, and OMP:
+
+```bash
+# macOS/Linux
+curl -sSL https://raw.githubusercontent.com/Loveacup/matt-skills/main/scripts/install-macos.sh | bash
+
+# Windows (PowerShell)
+irm https://raw.githubusercontent.com/Loveacup/matt-skills/main/scripts/install-windows.ps1 | iex
+```
+
+### What's different from upstream
+
+| Change | Reason |
+|--------|--------|
+| `ask-matt` → `ask-alex` | Personalized routing for Alex's multi-agent workflow |
+| `setup-matt-*` → `setup-alex-skills` | Personalized setup for Alex's environment |
+| `git-guardrails-claude-code` → `git-guardrails` | Multi-platform: Hermes + Claude Code + Codex + OMP |
+| `obsidian-vault` multi-device | Auto-detect MacBook Pro / Mac mini / Windows vault paths |
+| Removed 6 skills | 4 deprecated + 2 course-specific (TypeScript course) |
+| `.vault-structure.json` | Dynamic OB vault structure schema |
+| Installation scripts | `install-macos.sh` + `install-windows.ps1` |
 
 ## Why These Skills Exist
 
