@@ -1,0 +1,153 @@
+# Hermes Plugin Manifest for matt-skills
+# Auto-generated from skills/ directory
+# Source of truth: skills/ (Hermes ~/.hermes/skills/)
+
+name: matt-skills
+version: 0.2.0
+description: Multi-platform agent skills fork from mattpocock/skills, personalized for Alex
+author: Alex Cai (based on mattpocock/skills)
+
+# Hermes loads skills directly from the skills/ directory via skill_view()
+# This manifest serves as documentation and for installation scripts
+skills:
+  engineering:
+    - name: ask-alex
+      path: skills/engineering/ask-alex/SKILL.md
+      description: Skill flow router for Alex's multi-agent workflow
+      type: routine
+      disable-model-invocation: true
+    - name: codebase-design
+      path: skills/engineering/codebase-design/SKILL.md
+      description: Deep module design with deepening opportunities
+      type: routine
+    - name: diagnosing-bugs
+      path: skills/engineering/diagnosing-bugs/SKILL.md
+      description: Systematic bug diagnosis with HITL loop
+      type: routine
+    - name: domain-modeling
+      path: skills/engineering/domain-modeling/SKILL.md
+      description: Domain modeling with CONTEXT.md and ADR
+      type: routine
+    - name: grill-with-docs
+      path: skills/engineering/grill-with-docs/SKILL.md
+      description: Sharpen ideas with structured interview (stateful)
+      type: routine
+    - name: implement
+      path: skills/engineering/implement/SKILL.md
+      description: Execute implementation from PRD + issues
+      type: routine
+    - name: improve-codebase-architecture
+      path: skills/engineering/improve-codebase-architecture/SKILL.md
+      description: Surface deepening opportunities in codebase
+      type: routine
+    - name: prototype
+      path: skills/engineering/prototype/SKILL.md
+      description: Build throwaway prototypes for learning
+      type: routine
+    - name: resolving-merge-conflicts
+      path: skills/engineering/resolving-merge-conflicts/SKILL.md
+      description: Resolve git merge conflicts systematically
+      type: routine
+    - name: setup-alex-skills
+      path: skills/engineering/setup-alex-skills/SKILL.md
+      description: Multi-platform setup for Alex's engineering skills
+      type: routine
+      disable-model-invocation: true
+    - name: tdd
+      path: skills/engineering/tdd/SKILL.md
+      description: Test-driven development workflow
+      type: routine
+    - name: to-issues
+      path: skills/engineering/to-issues/SKILL.md
+      description: Split PRD into independently-grabbable issues
+      type: routine
+    - name: to-prd
+      path: skills/engineering/to-prd/SKILL.md
+      description: Convert conversation thread into PRD
+      type: routine
+    - name: triage
+      path: skills/engineering/triage/SKILL.md
+      description: Triage incoming issues through state machine
+      type: routine
+
+  productivity:
+    - name: grill-me
+      path: skills/productivity/grill-me/SKILL.md
+      description: Stateless idea sharpener (no codebase needed)
+      type: routine
+    - name: grilling
+      path: skills/productivity/grilling/SKILL.md
+      description: Generic grilling methodology
+      type: routine
+    - name: handoff
+      path: skills/productivity/handoff/SKILL.md
+      description: Cross-session context handoff
+      type: routine
+    - name: teach
+      path: skills/productivity/teach/SKILL.md
+      description: Multi-session concept learning
+      type: routine
+    - name: writing-great-skills
+      path: skills/productivity/writing-great-skills/SKILL.md
+      description: Reference for writing effective skills
+      type: routine
+
+  misc:
+    - name: git-guardrails
+      path: skills/misc/git-guardrails/SKILL.md
+      description: Multi-platform dangerous git command blocker
+      type: tool
+    - name: setup-pre-commit
+      path: skills/misc/setup-pre-commit/SKILL.md
+      description: Set up pre-commit hooks
+      type: tool
+
+  personal:
+    - name: edit-article
+      path: skills/personal/edit-article/SKILL.md
+      description: Edit article content
+      type: tool
+    - name: obsidian-vault
+      path: skills/personal/obsidian-vault/SKILL.md
+      description: Multi-device Obsidian vault management
+      type: tool
+
+  in-progress:
+    - name: decision-mapping
+      path: skills/in-progress/decision-mapping/SKILL.md
+      description: Map decisions and trade-offs
+      type: routine
+      status: draft
+    - name: loop-me
+      path: skills/in-progress/loop-me/SKILL.md
+      description: Iterative loop for refinement
+      type: routine
+      status: draft
+    - name: review
+      path: skills/in-progress/review/SKILL.md
+      description: Code review workflow
+      type: routine
+      status: draft
+    - name: writing-beats
+      path: skills/in-progress/writing-beats/SKILL.md
+      description: Writing beats and structure
+      type: routine
+      status: draft
+    - name: writing-fragments
+      path: skills/in-progress/writing-fragments/SKILL.md
+      description: Writing fragment management
+      type: routine
+      status: draft
+    - name: writing-shape
+      path: skills/in-progress/writing-shape/SKILL.md
+      description: Writing shape and arc
+      type: routine
+      status: draft
+
+# Installation path (Hermes auto-discovers from ~/.hermes/skills/)
+# Source of truth: Hermes ~/.hermes/skills/ (skills directory)
+# Other platforms derive from this manifest via generate-manifests.py
+
+# Changelog
+# 2026-06-28 v0.2: Phase 1 complete — renamed ask-alex + setup-alex, deleted 6 deprecated/course skills, git-guardrails multi-platform, obsidian-vault multi-device
+# 2026-06-28 v0.1: Initial fork from mattpocock/skills

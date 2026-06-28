@@ -1,10 +1,10 @@
 ---
-name: ask-matt
-description: Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo.
+name: ask-alex
+description: Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo. Personalized for Alex's multi-agent workflow (Hermes + Claude Code + Codex + OMP).
 disable-model-invocation: true
 ---
 
-# Ask Matt
+# Ask Alex
 
 You don't remember every skill, so ask.
 
@@ -48,6 +48,18 @@ Not feature work — upkeep.
 - **`/handoff`** — when a thread is full or you need to branch off (e.g. into a `/prototype` session), this compacts the conversation into a markdown file. You don't continue in place — you **open a new session and reference that file** to carry the context across. It's the bridge between context windows, in either direction. Use it when you want a **fresh session** but need the **current conversation preserved**.
 - **`/compact`** (built-in) — stay in the **same conversation**, letting the earlier turns be summarized. Use it at **intentional breaks between phases**, when you don't mind losing the verbatim history. Don't compact mid-phase — the agent can lose its way. `/handoff` forks; `/compact` continues.
 
+## Multi-agent orchestrator (Alex's extension)
+
+Beyond the standard skill flows, Alex has a multi-agent workflow:
+
+- **`/kanban-orchestrator`** — decompose complex projects into parallel workstreams; dispatch to CC + Codex workers
+- **`/cc-tmux`** — drive Claude Code via tmux for deep engineering tasks
+- **`/codex`** — delegate coding to Codex CLI for features and PRs
+- **`/grill-with-docs` (governance)** — Alex's STDD-enhanced version with deeper questioning and CQI alignment
+- **`/agent-hub`** — manage multi-agent hub with iii-powered orchestration
+
+Use `/ask-alex` when you're unsure which flow or orchestrator to pick for a given task.
+
 ## Standalone
 
 Off the main flow entirely.
@@ -58,4 +70,4 @@ Off the main flow entirely.
 
 ## Precondition
 
-**`/setup-matt-pocock-skills`** — run before your first engineering flow to configure the issue tracker, triage labels, and doc layout the other skills assume. Custom issue trackers also work.
+**`/setup-alex-skills`** — run before your first engineering flow to configure the issue tracker, triage labels, and doc layout the other skills assume. Custom issue trackers also work.

@@ -1,10 +1,10 @@
 ---
-name: setup-matt-pocock-skills
-description: Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.
+name: setup-alex-skills
+description: Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills. Personalized for Alex's multi-platform workflow (Hermes + Claude Code + Codex + OMP).
 disable-model-invocation: true
 ---
 
-# Setup Matt Pocock's Skills
+# Setup Alex's Skills
 
 Scaffold the per-repo configuration that the engineering skills assume:
 
@@ -13,6 +13,19 @@ Scaffold the per-repo configuration that the engineering skills assume:
 - **Domain docs** — where `CONTEXT.md` and ADRs live, and the consumer rules for reading them
 
 This is a prompt-driven skill, not a deterministic script. Explore, present what you found, confirm with the user, then write.
+
+## Multi-platform support
+
+This skill supports installation across Alex's four agent platforms:
+
+| Platform | Install method | Priority |
+|----------|---------------|----------|
+| **Hermes** | `~/.hermes/skills/` (source of truth) | P0 |
+| **Claude Code** | `.claude-plugin/plugin.json` | P1 |
+| **Codex** | `.codex-plugin/plugin.json` | P2 |
+| **OMP** | `.omp-plugin/plugin.json` | P3 |
+
+For Hermes, skills are auto-discovered from `~/.hermes/skills/` — no setup needed beyond placing files in the correct directory. For Claude Code, use `npx skills@latest add Loveacup/matt-skills`.
 
 ## Process
 
